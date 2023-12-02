@@ -1,2 +1,5 @@
-# 2023-11-otus-spring-Sitnikov
-Spring Course
+# Spring Course 
+
+ Репозиторий для размещения домашних работ по курсу Otus Spring 
+
+ Поток 2023-11
