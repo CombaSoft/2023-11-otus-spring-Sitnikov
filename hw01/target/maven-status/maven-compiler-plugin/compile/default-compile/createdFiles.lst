@@ -1,0 +1,16 @@
+ru\otus\hw\config\AppProperties.class
+ru\otus\hw\dao\dto\QuestionDto.class
+ru\otus\hw\dao\QuestionDao.class
+ru\otus\hw\dao\dto\AnswerCsvConverter.class
+ru\otus\hw\domain\Question.class
+ru\otus\hw\service\TestRunnerService.class
+ru\otus\hw\Application.class
+ru\otus\hw\service\TestServiceImpl.class
+ru\otus\hw\exceptions\QuestionReadException.class
+ru\otus\hw\service\IOService.class
+ru\otus\hw\domain\Answer.class
+ru\otus\hw\dao\CsvQuestionDao.class
+ru\otus\hw\service\TestRunnerServiceImpl.class
+ru\otus\hw\config\TestFileNameProvider.class
+ru\otus\hw\service\StreamsIOService.class
+ru\otus\hw\service\TestService.class
