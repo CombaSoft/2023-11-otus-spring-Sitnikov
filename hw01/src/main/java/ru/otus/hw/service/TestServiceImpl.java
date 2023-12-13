@@ -12,13 +12,15 @@ public class TestServiceImpl implements TestService {
 
     private final QuestionDao questionDao;
 
+    private final QuestionPresenterService presenterService;
+
     @Override
     public void executeTest() {
         ioService.printLine("");
         ioService.printFormattedLine("Please answer the questions below%n");
         // Получить вопросы из дао и вывести их с вариантами ответов
         for (Question question : questionDao.findAll()) {
-            ioService.printLine(question.toString());
+            ioService.printLine(presenterService.getPresentation(question));
         }
     }
 }

@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -32,11 +33,9 @@ public class CsvQuestionDao implements QuestionDao {
         // Про ресурсы: https://mkyong.com/java/java-read-a-file-from-resources-folder/
         List<QuestionDto> beans = new ArrayList<>();
 
-        try {
-            InputStream inputStream =
-                    getClass().getClassLoader().getResourceAsStream(fileNameProvider.getTestFileName());
-
-            Reader reader = new InputStreamReader(inputStream);
+        try (InputStream inputStream =
+                     getClass().getClassLoader().getResourceAsStream(fileNameProvider.getTestFileName());
+             Reader reader = new InputStreamReader(Objects.requireNonNull(inputStream))) {
 
             beans.addAll(new CsvToBeanBuilder(reader)
                     .withType(QuestionDto.class).
@@ -48,6 +47,6 @@ public class CsvQuestionDao implements QuestionDao {
             throw new QuestionReadException(e.getMessage(), e.getCause());
         }
 
-        return new ArrayList<>(beans.stream().map(t -> t.toDomainObject()).collect(Collectors.toList()));
+        return beans.stream().map(QuestionDto::toDomainObject).collect(Collectors.toList());
     }
 }
