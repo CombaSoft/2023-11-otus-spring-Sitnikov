@@ -13,7 +13,6 @@ public class Application {
     public static void main(String[] args) {
 
         //todo: internationalization for en/ru locales
-        //todo: logging by sl4j
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
         TestRunnerService testRunnerService = context.getBean(TestRunnerService.class);
