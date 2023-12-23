@@ -9,7 +9,7 @@ public class QuestionPresenterServiceImpl implements QuestionPresenterService {
 
     private static final String SPACER = " ";
 
-    private static final String NEW_LINE = "\n";
+    private static final String NEW_LINE = System.lineSeparator();
 
     @Override
     public String getPresentation(Question question) {
