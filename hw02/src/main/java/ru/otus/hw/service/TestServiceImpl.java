@@ -22,7 +22,6 @@ public class TestServiceImpl implements TestService {
 
     private final QuestionPresenterService presenterService;
 
-    //todo: investigate why info from line 28 appeared in log file twice in about the same time.
     @Override
     public TestResult executeTestFor(Student student) {
         LOG.info("Start");
