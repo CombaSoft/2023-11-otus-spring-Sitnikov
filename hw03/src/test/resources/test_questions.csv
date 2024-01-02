@@ -1,0 +1,4 @@
+# Добавить сюда своих вопросов. Эту строку надо пропустить при настройке CsvToBean (withSkipLines)
+It is nice to be important. But what is more important?;To be important%false|To be nice%true
+Which group has lyric used in previous question?;Depeche Mode%false|Kraftwerk%false|Scooter%true
+Which group has had a significant impact on the creativity of the Depeche Mode band?;Scooter%false|Pet Shop Boys%false|Kraftwerk%true

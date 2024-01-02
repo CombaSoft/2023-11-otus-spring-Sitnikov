@@ -1,0 +1,7 @@
+# Добавить сюда своих вопросов. Эту строку надо пропустить при настройке CsvToBean (withSkipLines)
+Есть ли жизнь на Марсе?;Наука этого пока не знает%true|Конечно. Красные НЛО - с Марса. А зелёные - с Венеры%false|Абсолютно нет%false
+Как следует загружать ресурсы jar в Java?;ClassLoader#geResourceAsStream или ClassPathResource#getInputStream%true|ClassLoader#geResource#getFile + FileReader%false|Wingardium Leviosa%false
+Какой способ является хорошим вариантом обработки исключений?;@SneakyThrow%false|e.printStackTrace()%false|Повторно пробросить исключение, обернув его в бизнес-исключение (например, QuestionReadException)%true|Игнорирование исключения%false
+It is nice to be important. But what is more important?;To be important%false|To be nice%true
+Текст песни какой группы использовался в предыдущем вопросе?;Depeche Mode%false|Kraftwerk%false|Scooter%true
+Какая группа оказала значительное влияние на творчество группы Depeche Mode?;Scooter%false|Pet Shop Boys%false|Kraftwerk%true
