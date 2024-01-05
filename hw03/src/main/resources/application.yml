@@ -1,19 +1,18 @@
 spring:
   messages:
-    basename: "i18n/appmessages"
-    encoding: "UTF-8"
+    baseName: i18n/appmessages
+    encoding: UTF-8
+    # Не дает свалиться в системную локаль если не найден файл для переданной в MessageSource
+    # Если false то будут браться сообщения из дефолтного файла, если true, то из файла соответствующего системной локали
+    fallbackToSystemLocale: false
 
 application:
-  defaultLocale: en_US
   io:
     max_attempts: 10
-  availableLocales:
-    - ru_RU
-    - en_US
 
 test:
-  fileNames:
-    ru_RU: "ru_questions.csv"
-    en_US: "en_questions.csv"
-
   rightAnswersCountToPass: 3
+  locale: ru-RU
+  fileNameByLocaleTag:
+    ru-RU: ru_questions.csv
+    en-US: en_questions.csv

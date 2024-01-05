@@ -5,16 +5,13 @@ spring:
     fallbackToSystemLocale: false
 
 application:
-  defaultLocale: en-US
   io:
     max_attempts: 10
-  availableLocales:
-    - ru-RU
-    - en-US
 
 test:
+  locale: en-US
   fileNames:
-    ru-RU: "ru_questions.csv"
-    en-US: "en_questions.csv"
+    ru-RU: ru_questions.csv
+    en-US: en_questions.csv
 
   rightAnswersCountToPass: 3

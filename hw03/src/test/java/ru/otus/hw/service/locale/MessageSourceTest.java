@@ -10,10 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.util.Assert;
 import ru.otus.hw.Application;
-import ru.otus.hw.config.LocalePropertiesProvider;
+import ru.otus.hw.config.LocaleConfig;
 import ru.otus.hw.service.TestRunnerService;
-
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,11 +26,11 @@ public class MessageSourceTest {
     @Autowired
     MessageSource messageSource;
 
+    @Autowired
+    LocaleConfig localeConfig;
+
     @MockBean
     TestRunnerService runnerService;
-
-    @Autowired
-    LocalePropertiesProvider localePropertiesProvider;
 
     @Order(1)
     @DisplayName("MessageSource returns correct message")
@@ -41,9 +39,7 @@ public class MessageSourceTest {
 
         String expectedResult = "Enter your first name";
 
-        Locale testLocale = localePropertiesProvider.getAvailableLocalesProperty().get(1);
-
-        String actualResult = messageSource.getMessage("input.first.name", null, testLocale);
+        String actualResult = messageSource.getMessage("input.first.name", null, localeConfig.getLocale());
 
         Assert.isTrue(expectedResult.equals(actualResult), "MessageSource returns incorrect result for en-US locale");
     }
@@ -53,11 +49,10 @@ public class MessageSourceTest {
     @Test
     void messageSourceNegativeTest() {
 
-        Locale testLocale = localePropertiesProvider.getAvailableLocalesProperty().get(1);
         Exception thrown = assertThrows(
                 NoSuchMessageException.class,
                 () -> {
-                    messageSource.getMessage("input.first.name_", null, testLocale);
+                    messageSource.getMessage("input.first.name_", null, localeConfig.getLocale());
                 },
                 "Expected messageSource.getMessage() to throw, but it didn't"
         );
