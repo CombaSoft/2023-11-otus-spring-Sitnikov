@@ -1,4 +1,4 @@
-package ru.otus.hw.dao;
+package ru.otus.hw.service;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -6,12 +6,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.util.Assert;
 import ru.otus.hw.config.TestFileNameProvider;
+import ru.otus.hw.dao.CsvQuestionDao;
+import ru.otus.hw.dao.QuestionDao;
 import ru.otus.hw.domain.Student;
 import ru.otus.hw.domain.TestResult;
-import ru.otus.hw.service.IOService;
-import ru.otus.hw.service.QuestionPresenterService;
-import ru.otus.hw.service.TestService;
-import ru.otus.hw.service.TestServiceImpl;
+
 
 
 import static org.mockito.ArgumentMatchers.*;
