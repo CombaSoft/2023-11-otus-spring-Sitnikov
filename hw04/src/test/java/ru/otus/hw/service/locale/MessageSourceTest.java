@@ -1,7 +1,6 @@
 package ru.otus.hw.service.locale;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -9,11 +8,10 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.util.Assert;
 import ru.otus.hw.Application;
 import ru.otus.hw.config.LocaleConfig;
-import ru.otus.hw.service.TestRunnerService;
+import ru.otus.hw.shell.MainMenu;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -32,7 +30,7 @@ public class MessageSourceTest {
     LocaleConfig localeConfig;
 
     @MockBean
-    TestRunnerService runnerService;
+    MainMenu mainMenu;
 
     @Order(1)
     @DisplayName("MessageSource returns correct message")
