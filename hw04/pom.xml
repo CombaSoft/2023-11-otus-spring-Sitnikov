@@ -5,13 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>otus-spring-2023-11</artifactId>
-        <groupId>ru.otus.hw</groupId>
-        <version>1.0</version>
+	    <artifactId>otus-spring-2023-11</artifactId>
+		<groupId>ru.otus.hw</groupId>
+		<version>1.0</version>
     </parent>
 
-    <artifactId>hw03</artifactId>
-    <name>hw03-spring-boot</name>
+    <artifactId>hw04</artifactId>
+	<name>hw04-spring-shell</name>
+
+    <properties>
+        <spring-shell-starter.version>3.2.0</spring-shell-starter.version>
+        <spring-shell.version>3.2.0</spring-shell.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -23,6 +28,12 @@
                     <artifactId>logback-classic</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell-starter</artifactId>
+            <version>${spring-shell-starter.version}</version>
         </dependency>
 
         <dependency>
@@ -46,7 +57,24 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell-core</artifactId>
+            <version>3.2.0</version>
+        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.shell</groupId>
+                <artifactId>spring-shell-dependencies</artifactId>
+                <version>${spring-shell.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <packaging>jar</packaging>
 </project>

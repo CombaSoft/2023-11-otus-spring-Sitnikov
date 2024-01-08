@@ -5,14 +5,51 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-	    <artifactId>otus-spring-2023-11</artifactId>
-		<groupId>ru.otus.hw</groupId>
-		<version>1.0</version>
+        <artifactId>otus-spring-2023-11</artifactId>
+        <groupId>ru.otus.hw</groupId>
+        <version>1.0</version>
     </parent>
 
     <groupId>ru.otus.hw</groupId>
     <artifactId>hw01</artifactId>
-	<name>hw01-xml-config</name>
+    <name>hw01-xml-config</name>
+
+    <properties>
+        <junit.version>5.10.0</junit.version>
+        <mockito.version>5.4.0</mockito.version>
+        <assertj.version>3.24.2</assertj.version>
+        <mockito_junit_jupiter.version>5.8.0</mockito_junit_jupiter.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+            <version>${mockito.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito_junit_jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+            <version>${assertj.version}</version>
+        </dependency>
+    </dependencies>
 
     <packaging>jar</packaging>
 
