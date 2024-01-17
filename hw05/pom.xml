@@ -12,8 +12,6 @@
     <name>hw05-spring-jdbc</name>
 
     <properties>
-        <h2.version>2.2.220</h2.version>
-        <snakeyaml.version>2.0</snakeyaml.version>
         <spring-shell.version>3.2.0</spring-shell.version>
     </properties>
 
@@ -38,14 +36,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-            <version>${h2.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>${snakeyaml.version}</version>
         </dependency>
 
         <dependency>
