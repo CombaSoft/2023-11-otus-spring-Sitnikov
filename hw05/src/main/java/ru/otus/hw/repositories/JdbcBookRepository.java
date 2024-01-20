@@ -87,7 +87,8 @@ public class JdbcBookRepository implements BookRepository {
         var keyHolder = new GeneratedKeyHolder();
 
         //noinspection DataFlowIssue
-        jdbcTemplate.update(getMergeQuery(), sqlParameters, keyHolder);
+        jdbcTemplate.update("insert into books (title, author_id, genre_id) values (:title, :author_id, :genre_id)",
+                sqlParameters, keyHolder);
 
         book.setId(keyHolder.getKeyAs(Long.class));
         return book;
@@ -103,33 +104,18 @@ public class JdbcBookRepository implements BookRepository {
         SqlParameterSource sqlParameters = new MapSqlParameterSource(queryMapParameters);
 
         int countOfUpdatedEntities =
-                jdbcTemplate.update(getMergeQuery(), sqlParameters);
+                jdbcTemplate.update("""
+                        update books\s
+                        set\s
+                          title = :title,\s
+                          author_id = :author_id,\s
+                          genre_id = :genre_id
+                        where id = :id""", sqlParameters);
 
         if (countOfUpdatedEntities < 1) {
             throw new EntityNotFoundException("Book with id " + book.getId() + " not found");
         }
         return book;
-    }
-
-    private String getMergeQuery() {
-        return """
-         merge into books t\s
-         using\s
-         (
-           select
-              CAST(:id AS INTEGER) as id,
-              CAST(:title AS VARCHAR) as title,
-              CAST(:author_id AS INTEGER) as author_id,
-              CAST(:genre_id AS INTEGER) as genre_id
-           from dual
-         ) v\s
-         on
-         (
-           t.id = v.id
-         )
-         when matched then update set title = v.title, author_id = v.author_id, genre_id = v.genre_id
-         when not matched then insert (title, author_id, genre_id)
-         values (v.title, v.author_id, v.genre_id)""";
     }
 
     private static class BookRowMapper implements RowMapper<Book> {

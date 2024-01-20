@@ -1,5 +1,32 @@
-insert into authors(full_name)
-values ('Author_1'), ('Author_2'), ('Author_3');
+merge into authors t
+using
+(
+  select
+     1 as id,
+     'Author_1' as full_name
+  from dual
+
+  union all
+
+  select
+     2 as id,
+     'Author_2' as full_name
+  from dual
+
+  union all
+
+  select
+     3 as id,
+     'Author_3' as full_name
+  from dual
+) v
+on
+(
+  t.id = v.id
+)
+when matched then update set full_name = v.full_name
+when not matched then insert (id, full_name)
+values (v.id, v.full_name);
 
 insert into genres(name)
 values ('Genre_1'), ('Genre_2'), ('Genre_3');
